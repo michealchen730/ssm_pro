@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- User对象User表之间的映射方式 -->
+<mapper namespace="com.scdn.dao.UserDao">
+    <!-- User对象user表之间的映射方式 -->
+    <resultMap id="BaseResultMap" type="com.scdn.domain.User">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="findById" resultType="com.scdn.domain.User" parameterType="java.lang.Integer">
+        select id,name,password from user where id=#{id}
+    </select>
+</mapper>
